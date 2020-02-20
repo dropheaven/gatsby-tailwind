@@ -5,5 +5,23 @@
  */
 
 module.exports = {
-  /* Your site config here */
+   plugins: [
+      {
+         resolve: `gatsby-plugin-postcss`,
+         options: {
+            postCssPlugins: [
+               require('tailwindcss'), 
+               require('autoprefixer'),
+               require('cssnano')
+            ]
+         }
+      },
+      {
+         resolve: `gatsby-plugin-purgecss`,
+         options: {
+            develop: false,
+            tailwind: true
+         }
+      }
+   ],
 }
